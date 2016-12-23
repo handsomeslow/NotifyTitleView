@@ -9,9 +9,12 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.WindowManager;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    NotifyTitleView titleView;
+    boolean isShow;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,13 +23,26 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-
+        titleView = (NotifyTitleView)findViewById(R.id.titleView);
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+            }
+        });
+        titleView.showDeleteView();
+        isShow = true;
+        titleView.setOnNotifyClickListener(new NotifyTitleView.OnNotifyClickListener() {
+            @Override
+            public void onDeleteClick(View view) {
+                Toast.makeText(MainActivity.this,"点击了删除",Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onHelpClick(View view) {
+                Toast.makeText(MainActivity.this,"点击了帮助",Toast.LENGTH_SHORT).show();
             }
         });
     }
@@ -51,5 +67,37 @@ public class MainActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+
+    public void onShowDeteleClick(View view){
+        if (isShow){
+            titleView.hideDeleteView();
+        } else {
+            titleView.showDeleteView();
+        }
+        isShow =!isShow;
+    }
+
+    public void onNotifyViewClick(View view){
+        titleView.notifyView();
+    }
+
+    public void onShowInfoClick(View view){
+        if (isShow){
+            titleView.showHelpView();
+        } else {
+            titleView.hideHelpView();
+        }
+        isShow =!isShow;
+    }
+
+    public void onShowAllViewClick(View view){
+        if (isShow){
+            titleView.showDeteleAndInfoView();
+        } else {
+            titleView.hideDeteleAndInfoView();
+        }
+        isShow =!isShow;
     }
 }

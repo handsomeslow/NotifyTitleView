@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v4.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.v4.widget.NestedScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/content_main"
@@ -13,11 +14,44 @@
     tools:context="com.example.jun.notifytitlewidget.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <com.example.jun.notifytitlewidget.NotifyTitleView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:gravity="center"
-        app:lebal="二手房"
-        app:lebalBackgroud="@drawable/pm_state_greenbg"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="滑出删除"
+            android:onClick="onShowDeteleClick"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="展示隐藏"
+            android:onClick="onNotifyViewClick"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="滑出全部"
+            android:onClick="onShowAllViewClick"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="滑出帮助"
+            android:onClick="onShowInfoClick"/>
+
+        <com.example.jun.notifytitlewidget.NotifyTitleView
+            android:id="@+id/titleView"
+            android:layout_width="wrap_content"
+            android:layout_height="45dp"
+            android:gravity="center"
+            app:lebal="二手房"
+            app:lebalWidth="90dp"
+            app:lebalBackgroud="@drawable/pm_state_greenbg"/>
+
+    </LinearLayout>
+
 
 </android.support.v4.widget.NestedScrollView>

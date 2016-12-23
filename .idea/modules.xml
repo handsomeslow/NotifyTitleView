@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/NotifiyTitleWidget.iml" filepath="$PROJECT_DIR$/NotifiyTitleWidget.iml" />
+      <module fileurl="file://$PROJECT_DIR$/NotifyTitleWidget.iml" filepath="$PROJECT_DIR$/NotifyTitleWidget.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>

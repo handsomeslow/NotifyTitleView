@@ -2,6 +2,7 @@
 <resources>
     <declare-styleable name="NotifyTitleView">
         <attr name="lebal" format="string"/>
+        <attr name="lebalWidth" format="dimension"/>
         <attr name="lebalBackgroud" format="reference"/>
     </declare-styleable>
 </resources>
